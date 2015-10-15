@@ -14,12 +14,18 @@ public class SchedulerTest {
 		return new ForeseeableAction(nbStepsMax);
 	}
 
+	private Scheduler createScheduler()
+	{
+		return new Scheduler();
+	}
+
 
 	@Test
-	public void schedulerTest() {
+	public void schedulerTest()
+	{
 		Action action1 = createAction(2);
 		Action action2 = createAction(1);
-		Action scheduler = createAction(0);
+		Scheduler scheduler = createScheduler();
 
 		scheduler.addAction(action1);
 		scheduler.addAction(action2);
@@ -45,25 +51,25 @@ public class SchedulerTest {
 	}
 
 	@Test
-	public void schedulerWithSchedulerTest() {
+	public void schedulerWithSchedulerTest()
+	{
 		Action action1 = createAction(2);
-		Action action2 = createAction(2);
-		Action subScheduler = createAction(0);
-		Action scheduler = createAction(0);
-		
+		Scheduler subScheduler = createScheduler();
+		Scheduler scheduler = createScheduler();
+
 		subScheduler.addAction(action1);
 		scheduler.addAction(subScheduler);
-		
+
 		assertTrue(action1.isReady());
 		assertTrue(subScheduler.isReady());
-		
+
 		scheduler.doStep();
-		
+
 		assertTrue(action1.isInProgress());
 		assertTrue(subScheduler.isInProgress());
-		
+
 		scheduler.doStep();
-		
+
 		assertTrue(action1.isFinished());
 		assertTrue(subScheduler.isFinished());
 	}
