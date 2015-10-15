@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import actions.Action;
+import actions.ActionFinishedException;
 
 public class Scheduler extends Action
 {
@@ -14,7 +15,7 @@ public class Scheduler extends Action
 		
 	}
 	
-	public void doStep()
+	public void doStep() throws ActionFinishedException
 	{
 
 	}
@@ -34,8 +35,18 @@ public class Scheduler extends Action
 		return true;
 	}
 
-	public void addAction(Action action)
+	public void addAction(Action subAction)
 	{
-			actions.add(action);
+		isInitialized = true;
+		if (subAction.isFinished()) {
+			throw new IllegalArgumentException(
+					"Can’t add an already finished action");
+		}
+		if (isFinished()) {
+			throw new IllegalStateException(
+					"You can’t add an action to a finished scheduler");
+		} else {
+			actions.add(subAction);
+		}
 	}
 }

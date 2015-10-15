@@ -2,7 +2,6 @@ package actions;
 
 import java.util.ArrayList;
 
-
 public abstract class Action
 {
 	protected int totalTime = 0;
@@ -11,6 +10,10 @@ public abstract class Action
 	protected boolean isInitialized = false;
 	protected boolean isScheduler= false;
 	protected final ArrayList<Action> actions = new ArrayList<Action>();
+	
+	public abstract boolean isReady();
+	public abstract boolean isInProgress();
+	public abstract boolean isFinished();
 	
 	public Action()
 	{
@@ -27,12 +30,8 @@ public abstract class Action
 			this.remainingTime = timeToEnd;
 		}
 	}
-
-	public abstract boolean isReady();
-	public abstract boolean isInProgress();
-	public abstract boolean isFinished();
 	
-	public void doStep()
+	public void doStep() throws ActionFinishedException
 	{	
 		if (!isScheduler)
 			remainingTime--;
@@ -44,19 +43,5 @@ public abstract class Action
 			if (nextAction.isFinished())
 				actions.remove(0);
 		}	
-	}
-
-	public void addAction(Action subAction) {
-		isInitialized = true;
-		if (subAction.isFinished()) {
-			throw new IllegalArgumentException(
-					"Can’t add an already finished action");
-		}
-		if (isFinished()) {
-			throw new IllegalStateException(
-					"You can’t add an action to a finished scheduler");
-		} else {
-			actions.add(subAction);
-		}
 	}
 }

@@ -1,8 +1,10 @@
-package scheduler;
+package test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import scheduler.Scheduler;
 
 import actions.Action;
 import actions.ForeseeableAction;
