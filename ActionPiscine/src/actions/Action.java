@@ -5,12 +5,17 @@ import java.util.ArrayList;
 
 public abstract class Action
 {
-	protected final int totalTime;
-	protected int remainingTime;
+	protected int totalTime = 0;
+	protected int remainingTime = 0;
 	protected boolean isReady = true;
 	protected boolean isInitialized = false;
-	protected final boolean isScheduler;
+	protected boolean isScheduler= false;
 	protected final ArrayList<Action> actions = new ArrayList<Action>();
+	
+	public Action()
+	{
+		
+	}
 	
 	public Action(int timeToEnd) 
 	{
