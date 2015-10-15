@@ -5,7 +5,7 @@ import java.util.List;
 
 import actions.Action;
 
-public abstract class Scheduler extends Action
+public class Scheduler extends Action
 {
 	protected List<Action> actions = new ArrayList<Action>();
 
@@ -34,10 +34,8 @@ public abstract class Scheduler extends Action
 		return true;
 	}
 
-	public void addAction(Action... actions)
+	public void addAction(Action action)
 	{
-		for(Action action : actions) {
-			addAction(action);
-		}
+			actions.add(action);
 	}
 }
