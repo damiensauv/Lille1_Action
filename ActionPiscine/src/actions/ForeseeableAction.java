@@ -3,7 +3,6 @@ package actions;
 
 public class ForeseeableAction extends Action
 {
-
 	protected int nbStepsMax;
 	protected int nbCurrentStep;
 	
@@ -12,7 +11,7 @@ public class ForeseeableAction extends Action
 		super(nbStepsMax);
 	}
 
-	public void doStep()
+	public void doStep() throws ActionFinishedException
 	{
 		
 	}
