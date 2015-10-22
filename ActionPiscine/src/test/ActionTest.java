@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import actions.Action;
+import actions.ActionFinishedException;
 import actions.ForeseeableAction;
 
 import scheduler.Scheduler;
@@ -22,19 +23,19 @@ public class ActionTest {
 	}
 
 	@Test
-	public void onlyOneValidStateAtEachMomentForForeseebleAction() {
+	public void onlyOneValidStateAtEachMomentForForeseebleAction() throws ActionFinishedException {
 		onlyOneValidStateAtEachMoment(createAction(10));
 	}
 
 	@Test
-	public void onlyOneValidStateAtEachMomentForScheduler()
+	public void onlyOneValidStateAtEachMomentForScheduler() throws ActionFinishedException
 	{
 		Scheduler scheduler = createScheduler();
 		scheduler.addAction(createAction(1));
 		onlyOneValidStateAtEachMoment(scheduler);
 	}
 
-	protected void onlyOneValidStateAtEachMoment(Action action)
+	protected void onlyOneValidStateAtEachMoment(Action action) throws ActionFinishedException
 	{
 		assertTrue(action.isReady());
 		assertFalse(action.isInProgress());

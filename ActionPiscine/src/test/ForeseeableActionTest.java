@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import actions.Action;
+import actions.ActionFinishedException;
 import actions.ForeseeableAction;
 
 public class ForeseeableActionTest {
@@ -15,7 +16,7 @@ public class ForeseeableActionTest {
 	}
 	
 	@Test
-	public void forseeableActionTest() 
+	public void forseeableActionTest() throws ActionFinishedException 
 	{
 		Action action = createAction(2);
 		

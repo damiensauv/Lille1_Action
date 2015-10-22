@@ -7,6 +7,7 @@ import org.junit.Test;
 import scheduler.Scheduler;
 
 import actions.Action;
+import actions.ActionFinishedException;
 import actions.ForeseeableAction;
 
 public class SchedulerTest {
@@ -23,7 +24,7 @@ public class SchedulerTest {
 
 
 	@Test
-	public void schedulerTest()
+	public void schedulerTest() throws ActionFinishedException
 	{
 		Action action1 = createAction(2);
 		Action action2 = createAction(1);
@@ -53,7 +54,7 @@ public class SchedulerTest {
 	}
 
 	@Test
-	public void schedulerWithSchedulerTest()
+	public void schedulerWithSchedulerTest() throws ActionFinishedException
 	{
 		Action action1 = createAction(2);
 		Scheduler subScheduler = createScheduler();
