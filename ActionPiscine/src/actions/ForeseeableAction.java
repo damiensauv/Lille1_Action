@@ -18,16 +18,25 @@ public class ForeseeableAction extends Action
 
 	public boolean isReady()
 	{
-		return true;
+		if (!isScheduler)
+			return remainingTime == totalTime;
+		else
+			return isInitialized && isReady;
 	}
 
 	public boolean isInProgress()
 	{
-		return true;
+		if (!isScheduler)
+			return !isReady() && !isFinished();
+		else
+			return isInitialized && !isReady() && !isFinished();
 	}
 
 	public boolean isFinished()
 	{
-		return true;
+		if (!isScheduler)
+			return remainingTime <= 0;
+		else
+			return isInitialized && !isReady() && actions.isEmpty();
 	}
 }
