@@ -14,7 +14,8 @@ public abstract class Action
 	public abstract boolean isReady();
 	public abstract boolean isInProgress();
 	public abstract boolean isFinished();
-	
+	protected abstract Action createAction();
+
 	public Action()
 	{
 		

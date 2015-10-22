@@ -15,7 +15,12 @@ public class ForeseeableAction extends Action
 	{
 		
 	}
-
+	
+	public Action createAction()
+	{
+		return this;		
+	}
+	
 	public boolean isReady()
 	{
 		if (!isScheduler)

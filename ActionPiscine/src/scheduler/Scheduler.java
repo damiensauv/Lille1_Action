@@ -15,6 +15,11 @@ public class Scheduler extends Action
 		
 	}
 	
+	public Action createAction()
+	{
+		return this;		
+	}
+	
 	public void doStep() throws ActionFinishedException
 	{
 
