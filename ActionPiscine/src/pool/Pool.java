@@ -19,7 +19,7 @@ public class Pool
 		s.addAction(new Swimmer("Alexis", baskets, cubicles, 6, 5, 7));
 		int nbSteps = 0;
 		while (!s.isFinished()) {
-		nbSteps++;
+			nbSteps++;
 		s.doStep();
 		}
 		System.out.println("Finished in " + nbSteps + " steps");
