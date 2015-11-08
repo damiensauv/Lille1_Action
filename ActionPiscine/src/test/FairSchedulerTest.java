@@ -21,8 +21,8 @@ public class FairSchedulerTest {
 	@Test
 	public void schedulerTest() throws ActionFinishedException
 	{
-		Action action1 = createAction(2);
-		Action action2 = createAction(1);
+		Action action1 = createAction(1);
+		Action action2 = createAction(2);
 		FairScheduler scheduler = new FairScheduler();
 
 		scheduler.addAction(action1);
@@ -33,19 +33,13 @@ public class FairSchedulerTest {
 
 		scheduler.doStep();
 
-		assertTrue(action1.isInProgress());
+		assertFalse(action1.isInProgress());
 		assertTrue(action2.isReady());
 
 		scheduler.doStep();
-
 		assertTrue(action1.isFinished());
-		assertTrue(action2.isReady());
-
 		scheduler.doStep();
-
-		assertTrue(action1.isFinished());
 		assertTrue(action2.isFinished());
-
 	}
 
 	@Test

@@ -33,17 +33,6 @@ public class ForeseeableActionTest {
 		action.doStep();
 		
 		assertFalse(action.isReady());
-		assertTrue(action.isInProgress());
-		assertFalse(action.isFinished());
-		
-		action.doStep();
-		
-		assertFalse(action.isReady());
-		assertFalse(action.isInProgress());
-		assertTrue(action.isFinished());
-		
+		assertTrue(action.isFinished());		
 	}
-	
-	
-
 }

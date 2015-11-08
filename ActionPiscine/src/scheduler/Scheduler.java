@@ -33,10 +33,11 @@ public abstract class Scheduler extends Action
 
 	public boolean isInProgress()
 	{
-		if (!isScheduler)
-			return !isReady() && !isFinished();
-		else
-			return isInitialized && !isReady() && !isFinished();
+		for (Action action : this.actions) {
+			if (action.isInProgress())
+				return true;
+		}
+		return false;
 	}
 
 	public boolean isFinished()
@@ -46,7 +47,8 @@ public abstract class Scheduler extends Action
 
 	public void addAction(Action subAction)
 	{
-		isInitialized = true;
+		this.actions.add(subAction);
+		/*		isInitialized = true;
 		if (subAction.isFinished()) {
 			throw new IllegalArgumentException(
 					"Can’t add an already finished action");
@@ -56,6 +58,6 @@ public abstract class Scheduler extends Action
 					"You can’t add an action to a finished scheduler");
 		} else {
 			actions.add(subAction);
-		}
+		}*/
 	}
 }

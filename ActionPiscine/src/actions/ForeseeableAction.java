@@ -18,8 +18,8 @@ public class ForeseeableAction extends Action
 		super.doStep();
 	}
 	
-	public Action createAction()
+	public ForeseeableAction createAction()
 	{
-		return this;		
+		return this;
 	}
 }
