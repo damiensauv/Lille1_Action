@@ -1,5 +1,7 @@
 package actions;
 
+import exception.ActionFinishedException;
+
 
 public class ForeseeableAction extends Action
 {

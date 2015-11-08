@@ -1,9 +1,8 @@
 package scheduler;
 
 import java.util.ArrayList;
-
+import exception.ActionFinishedException;
 import actions.Action;
-import actions.ActionFinishedException;
 
 public class FairScheduler extends Scheduler
 {
@@ -15,6 +14,7 @@ public class FairScheduler extends Scheduler
 		this.actionNb = 0;
 	}
 	
+	@Override
 	public void doStep() throws ActionFinishedException
 	{
 		Action nextAction = null;

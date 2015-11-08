@@ -5,8 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import actions.Action;
-import actions.ActionFinishedException;
 import actions.ForeseeableAction;
+import exception.ActionFinishedException;
 
 public class ForeseeableActionTest {
 

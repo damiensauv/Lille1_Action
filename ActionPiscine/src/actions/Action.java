@@ -2,6 +2,8 @@ package actions;
 
 import java.util.ArrayList;
 
+import exception.ActionFinishedException;
+
 public abstract class Action
 {
 	protected int totalTime = 0;

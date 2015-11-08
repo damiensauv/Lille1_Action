@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import actions.Action;
-import actions.ActionFinishedException;
+import exception.ActionFinishedException;
 import actions.ForeseeableAction;
 
 import scheduler.FairScheduler;
@@ -26,7 +26,7 @@ public class ActionTest {
 	@Test
 	public void onlyOneValidStateAtEachMomentForScheduler() throws ActionFinishedException
 	{
-		FairScheduler fairscheduler = new FairScheduler();
+		FairScheduler fairscheduler = new FairScheduler(); 
 		fairscheduler.addAction(createAction(1));
 		onlyOneValidStateAtEachMoment(fairscheduler);
 	}

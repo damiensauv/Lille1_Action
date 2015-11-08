@@ -8,7 +8,7 @@ import scheduler.FairScheduler;
 import scheduler.Scheduler;
 
 import actions.Action;
-import actions.ActionFinishedException;
+import exception.ActionFinishedException;
 import actions.ForeseeableAction;
 
 public class SchedulerTest {

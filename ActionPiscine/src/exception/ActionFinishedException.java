@@ -1,4 +1,4 @@
-package actions;
+package exception;
 
 public class ActionFinishedException extends Exception {
 

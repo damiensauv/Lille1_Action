@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import actions.Action;
-import actions.ActionFinishedException;
+import exception.ActionFinishedException;
 
 public abstract class Scheduler extends Action
 {
@@ -19,6 +19,7 @@ public abstract class Scheduler extends Action
 		return this;		
 	}
 	
+
 	public void doStep() throws ActionFinishedException
 	{
 
