@@ -19,18 +19,16 @@ public abstract class Scheduler extends Action
 		return this;		
 	}
 	
-
-	public void doStep() throws ActionFinishedException
-	{
-
-	}
+	@Override
+	public abstract void doStep() throws ActionFinishedException;
 
 	public boolean isReady()
 	{
-		if (!isScheduler)
-			return remainingTime == totalTime;
-		else
-			return isInitialized && isReady;
+		for (Action action : this.actions) {
+			if (!action.isReady())
+				return false;
+		}
+		return true;
 	}
 
 	public boolean isInProgress()
@@ -43,10 +41,7 @@ public abstract class Scheduler extends Action
 
 	public boolean isFinished()
 	{
-		if (!isScheduler)
-			return remainingTime <= 0;
-		else
-			return isInitialized && !isReady() && actions.isEmpty();
+		return this.actions.isEmpty();
 	}
 
 	public void addAction(Action subAction)

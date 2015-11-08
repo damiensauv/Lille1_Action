@@ -13,14 +13,10 @@ public abstract class Action
 	protected boolean isScheduler= false;
 	protected final ArrayList<Action> actions = new ArrayList<Action>();
 	
-	public abstract boolean isReady();
-	public abstract boolean isInProgress();
-	public abstract boolean isFinished();
 	protected abstract Action createAction();
 
 	public Action()
 	{
-		
 	}
 	
 	public Action(int timeToEnd) 
@@ -34,17 +30,33 @@ public abstract class Action
 		}
 	}
 	
+	public boolean isFinished()
+	{
+		if (this.totalTime == this.remainingTime)
+		{
+			this.isInitialized = false;
+			return true;
+		}
+		else
+			return false;
+	}
+	
+	public boolean isInProgress()
+	{
+		return (!this.isReady() && !this.isFinished() && this.isInitialized);
+	}
+	
+	public boolean isReady()
+	{
+		return this.isReady;
+	}
+	
 	public void doStep() throws ActionFinishedException
 	{	
-		if (!isScheduler)
-			remainingTime--;
-		else
-		{
-			isReady = false;
-			Action nextAction = actions.get(0);
-			nextAction.doStep();
-			if (nextAction.isFinished())
-				actions.remove(0);
-		}	
+		if (this.isFinished())throw new ActionFinishedException("Erreur on scheduler");
+		this.remainingTime++;
+		if (this.isReady())
+			this.isReady = false;
+		this.isInitialized = true;
 	}
 }

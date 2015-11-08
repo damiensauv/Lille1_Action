@@ -9,7 +9,6 @@ import exception.ActionFinishedException;
 import actions.ForeseeableAction;
 
 import scheduler.FairScheduler;
-import scheduler.Scheduler;
 
 public class ActionTest {
 

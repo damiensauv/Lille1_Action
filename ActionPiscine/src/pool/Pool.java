@@ -1,6 +1,6 @@
 package pool;
+import exception.ActionFinishedException;
 import scheduler.FairScheduler;
-import actions.ActionFinishedException;
 
 
 public class Pool 

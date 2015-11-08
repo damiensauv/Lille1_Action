@@ -11,7 +11,7 @@ import actions.Action;
 import exception.ActionFinishedException;
 import actions.ForeseeableAction;
 
-public class SchedulerTest {
+public class FairSchedulerTest {
 
 	private Action createAction(int nbStepsMax)
 	{
@@ -51,7 +51,7 @@ public class SchedulerTest {
 	@Test
 	public void schedulerWithSchedulerTest() throws ActionFinishedException
 	{
-		Action action1 = createAction(2);
+		ForeseeableAction action1 = (ForeseeableAction) createAction(2);
 		FairScheduler subScheduler = new FairScheduler();
 		FairScheduler scheduler = new FairScheduler();
 
