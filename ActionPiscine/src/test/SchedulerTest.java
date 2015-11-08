@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import scheduler.FairScheduler;
 import scheduler.Scheduler;
 
 import actions.Action;
@@ -17,18 +18,12 @@ public class SchedulerTest {
 		return new ForeseeableAction(nbStepsMax);
 	}
 
-	private Scheduler createScheduler()
-	{
-		return new Scheduler();
-	}
-
-
 	@Test
 	public void schedulerTest() throws ActionFinishedException
 	{
 		Action action1 = createAction(2);
 		Action action2 = createAction(1);
-		Scheduler scheduler = createScheduler();
+		FairScheduler scheduler = new FairScheduler();
 
 		scheduler.addAction(action1);
 		scheduler.addAction(action2);
@@ -57,8 +52,8 @@ public class SchedulerTest {
 	public void schedulerWithSchedulerTest() throws ActionFinishedException
 	{
 		Action action1 = createAction(2);
-		Scheduler subScheduler = createScheduler();
-		Scheduler scheduler = createScheduler();
+		FairScheduler subScheduler = new FairScheduler();
+		FairScheduler scheduler = new FairScheduler();
 
 		subScheduler.addAction(action1);
 		scheduler.addAction(subScheduler);

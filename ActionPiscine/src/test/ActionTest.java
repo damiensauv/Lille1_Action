@@ -8,6 +8,7 @@ import actions.Action;
 import actions.ActionFinishedException;
 import actions.ForeseeableAction;
 
+import scheduler.FairScheduler;
 import scheduler.Scheduler;
 
 public class ActionTest {
@@ -15,11 +16,6 @@ public class ActionTest {
 	private Action createAction(int nbStepsMax)
 	{
 		return new ForeseeableAction(nbStepsMax);
-	}
-
-	private Scheduler createScheduler()
-	{
-		return new Scheduler();
 	}
 
 	@Test
@@ -30,9 +26,9 @@ public class ActionTest {
 	@Test
 	public void onlyOneValidStateAtEachMomentForScheduler() throws ActionFinishedException
 	{
-		Scheduler scheduler = createScheduler();
-		scheduler.addAction(createAction(1));
-		onlyOneValidStateAtEachMoment(scheduler);
+		FairScheduler fairscheduler = new FairScheduler();
+		fairscheduler.addAction(createAction(1));
+		onlyOneValidStateAtEachMoment(fairscheduler);
 	}
 
 	protected void onlyOneValidStateAtEachMoment(Action action) throws ActionFinishedException

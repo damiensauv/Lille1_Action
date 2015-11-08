@@ -6,13 +6,12 @@ import java.util.List;
 import actions.Action;
 import actions.ActionFinishedException;
 
-public class Scheduler extends Action
+public abstract class Scheduler extends Action
 {
 	protected List<Action> actions = new ArrayList<Action>();
 
-	public Scheduler()
-	{
-		
+	public List<Action> getActions() {
+		return actions;
 	}
 	
 	public Action createAction()
