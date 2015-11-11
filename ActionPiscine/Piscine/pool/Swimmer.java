@@ -14,37 +14,28 @@ public class Swimmer extends Action
 	public Swimmer(String name, RessourcePool<Basket> baskets, RessourcePool<Cubicle> cubicles, int undress, int swim, int dress)
 	{
 		super();
-
 		this.name = name;
         this.process = new SequentialScheduler();
         this.basketUser = new ResourcefulUser<Basket>(name);
         this.cubicleUser = new ResourcefulUser<Cubicle>(name);
 
-        this.process.addAction(new TakeResourceAction<Basket>(baskets, basketUser));//prend un panier                                                                                                                          
-        this.process.addAction(new TakeResourceAction<Cubicle>(cubicles, cubicleUser));// prend une cabine                                                                                                                     
- 
-        this.process.addAction(new UndressingAction(undress)); // se déshabille                                                                                                              
-              
-        this.process.addAction(new FreeResourceAction<Cubicle>(cubicles, cubicleUser)); // libère la cabine                                                                                                                    
-      
-        this.process.addAction(new SwimmingAction(swim));                      // nage                                                                                                                                   
-      
-        this.process.addAction(new TakeResourceAction<Cubicle>(cubicles, cubicleUser)); //reprend une cabine                                                                                                                   
-        this.process.addAction(new DressingAction(dress));                     // se rhabille                                                                                                                            
-        this.process.addAction(new FreeResourceAction<Cubicle>(cubicles, cubicleUser)); // rend la cabine                                                                                                                      
-        this.process.addAction(new FreeResourceAction<Basket>(baskets, basketUser));    // rend le panier     
-	
+        this.process.addAction(new TakeResourceAction<Basket>(baskets, basketUser));
+        this.process.addAction(new TakeResourceAction<Cubicle>(cubicles, cubicleUser));
+        this.process.addAction(new UndressingAction(undress));
+        this.process.addAction(new FreeResourceAction<Cubicle>(cubicles, cubicleUser));
+        this.process.addAction(new SwimmingAction(swim));
+        this.process.addAction(new TakeResourceAction<Cubicle>(cubicles, cubicleUser));
+        this.process.addAction(new DressingAction(dress));
+        this.process.addAction(new FreeResourceAction<Cubicle>(cubicles, cubicleUser));
+        this.process.addAction(new FreeResourceAction<Basket>(baskets, basketUser));
 	}
 
 	public boolean isFinished(){
 		return this.process.isFinished();
 	}
 	
-	
 	public void doStep() throws ActionFinishedException{
 		System.out.println(this.name + "'s turn");
 		this.process.doStep();
 	}
-	
-
 }

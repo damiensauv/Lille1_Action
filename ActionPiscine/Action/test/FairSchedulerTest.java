@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import scheduler.FairScheduler;
-import scheduler.Scheduler;
 
 import actions.Action;
 import exception.ActionFinishedException;

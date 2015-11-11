@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 /*
- *   Abstract Class for all Ressource Pool	
+ *   Abstract Class for all Resource Pool	
  */
 public abstract class RessourcePool<R extends Ressource>
 {

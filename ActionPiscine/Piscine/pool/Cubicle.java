@@ -6,5 +6,4 @@ public class Cubicle implements Ressource
 	{
 		return ("cubicle");
 	}
-
 }

@@ -6,5 +6,4 @@ public class Basket implements Ressource
 	{
 		return ("basket");
 	}
-
 }

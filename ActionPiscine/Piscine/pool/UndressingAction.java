@@ -5,7 +5,6 @@ import actions.ForeseeableAction;
 
 public class UndressingAction extends ForeseeableAction
 {
-
 	public UndressingAction(int undress) {
 		super(undress);
 	}
