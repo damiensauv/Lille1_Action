@@ -34,7 +34,6 @@ public abstract class RessourcePool<R extends Ressource>
 			R ressource = pool.get(0);
 			pool.remove(0);
 			used.add(ressource);
-			
 			return ressource;
 		}
 		throw new NoSuchElementException();
