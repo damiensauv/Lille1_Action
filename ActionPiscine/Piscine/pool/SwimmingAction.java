@@ -12,6 +12,6 @@ public class SwimmingAction extends ForeseeableAction {
 	public void doStep() throws ActionFinishedException
 	{
 		super.doStep();
-		System.out.println("-> swim : " + this.getCurrentStep() + "/" + super.getNbStepsMax());
+		System.out.println(" swim (" + this.getCurrentStep() + "/" + super.getNbStepsMax() + ")");
 	}
 }

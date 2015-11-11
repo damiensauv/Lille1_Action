@@ -12,6 +12,6 @@ public class UndressingAction extends ForeseeableAction
 	public void doStep() throws ActionFinishedException
 	{
 		super.doStep();
-		System.out.println("-> undressing : " + this.getCurrentStep() + "/" + super.getNbStepsMax());
+		System.out.println(" Undressing (" + this.getCurrentStep() + "/" + super.getNbStepsMax() + ")");
 	}
 }

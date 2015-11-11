@@ -19,6 +19,9 @@ public class Swimmer extends Action
         this.basketUser = new ResourcefulUser<Basket>(name);
         this.cubicleUser = new ResourcefulUser<Cubicle>(name);
 
+        /*
+         * Create all action in order for swimmer
+         */
         this.process.addAction(new TakeResourceAction<Basket>(baskets, basketUser));
         this.process.addAction(new TakeResourceAction<Cubicle>(cubicles, cubicleUser));
         this.process.addAction(new UndressingAction(undress));

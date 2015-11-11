@@ -14,6 +14,9 @@ public abstract class RessourcePool<R extends Ressource>
 
 	protected abstract R createRessource();
 
+	/*
+	 * Create pool and user for resource
+	 */
 	public RessourcePool(int nb)
 	{
 		this.pool = new ArrayList<R>(nb);

@@ -1,5 +1,8 @@
 package pool;
 
+/*
+ * Resource Cubicle Object
+ */
 public class Cubicle implements Ressource
 {
 	public String justPrint()
