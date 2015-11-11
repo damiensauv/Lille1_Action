@@ -31,9 +31,14 @@ public class Swimmer extends Action
         this.process.addAction(new DressingAction(dress));                     // se rhabille                                                                                                                            
         this.process.addAction(new FreeResourceAction<Cubicle>(cubicles, cubicleUser)); // rend la cabine                                                                                                                      
         this.process.addAction(new FreeResourceAction<Basket>(baskets, basketUser));    // rend le panier     
-	*/	
+	*/
 	}
 
+	public boolean isFinished(){
+		return this.process.isFinished();
+	}
+	
+	
 	public void doStep() throws ActionFinishedException{
 		System.out.println(this.name + "'s turn");
 		this.process.doStep();
