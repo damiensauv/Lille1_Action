@@ -4,17 +4,18 @@ import exception.ActionFinishedException;
 import scheduler.SequentialScheduler;
 import actions.Action;
 
-// extend action ?
 public class Swimmer extends Action
 {
     protected final ResourcefulUser<Basket> basketUser;
     protected final ResourcefulUser<Cubicle> cubicleUser;
     protected final SequentialScheduler process;
-
+    protected String name;
+    
 	public Swimmer(String name, RessourcePool<Basket> baskets, RessourcePool<Cubicle> cubicles, int undress, int swim, int dress)
 	{
 		super();
 
+		this.name = name;
         this.process = new SequentialScheduler();
         this.basketUser = new ResourcefulUser<Basket>(name);
         this.cubicleUser = new ResourcefulUser<Cubicle>(name);
@@ -35,8 +36,10 @@ public class Swimmer extends Action
 
 	@Override
 	public void doStep() throws ActionFinishedException{
-		System.out.println("Do step Swimmer");
+		System.out.println(this.name);
+		/*		this.process.doStep();
 		this.process.doStep();
+		*/
 	}
 	
 	@Override
