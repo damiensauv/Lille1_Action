@@ -21,9 +21,9 @@ public class Swimmer extends Action
         this.cubicleUser = new ResourcefulUser<Cubicle>(name);
 
         this.process.addAction(new TakeResourceAction<Basket>(baskets, basketUser));//prend un panier                                                                                                                          
-
         this.process.addAction(new TakeResourceAction<Cubicle>(cubicles, cubicleUser));// prend une cabine                                                                                                                     
-/* 
+
+        /* 
         this.process.addAction(new UndressingAction(undress)); // se déshabille                                                                                                              
         this.process.addAction(new FreeResourceAction<Cubicle>(cubicles, cubicleUser)); // libère la cabine                                                                                                                    
         this.process.addAction(new SwimmingAction(swim));                      // nage                                                                                                                                   
