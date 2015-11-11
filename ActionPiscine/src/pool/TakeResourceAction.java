@@ -2,9 +2,13 @@ package pool;
 
 import actions.*;
 
-public class TakeResourceAction extends Action
+public class TakeResourceAction<R extends Ressource> extends Action
 {
-
+	public TakeResourceAction(RessourcePool<R> pool, ResourcefulUser<R> user){
+		System.out.println("Take Resource");
+	}
+	
+	
 	@Override
 	public boolean isReady() {
 		// TODO Auto-generated method stub

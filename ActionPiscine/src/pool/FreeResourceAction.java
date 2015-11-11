@@ -2,8 +2,13 @@ package pool;
 
 import actions.*;
 
-public class FreeResourceAction extends Action
+public class FreeResourceAction<R extends Ressource> extends Action
 {
+
+	public FreeResourceAction(RessourcePool<R> pool,
+			ResourcefulUser<R> user) {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public boolean isReady() {
