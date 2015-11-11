@@ -26,13 +26,14 @@ public class Swimmer extends Action
         this.process.addAction(new UndressingAction(undress)); // se déshabille                                                                                                              
               
         this.process.addAction(new FreeResourceAction<Cubicle>(cubicles, cubicleUser)); // libère la cabine                                                                                                                    
-      /*
+      
         this.process.addAction(new SwimmingAction(swim));                      // nage                                                                                                                                   
+      
         this.process.addAction(new TakeResourceAction<Cubicle>(cubicles, cubicleUser)); //reprend une cabine                                                                                                                   
         this.process.addAction(new DressingAction(dress));                     // se rhabille                                                                                                                            
         this.process.addAction(new FreeResourceAction<Cubicle>(cubicles, cubicleUser)); // rend la cabine                                                                                                                      
         this.process.addAction(new FreeResourceAction<Basket>(baskets, basketUser));    // rend le panier     
-	*/
+	
 	}
 
 	public boolean isFinished(){
