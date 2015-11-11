@@ -25,7 +25,6 @@ public abstract class Action
 	
 	public boolean isFinished()
 	{
-		System.out.println("total time : " + this.totalTime + " remaining : " + this.remainingTime);
 		if (this.totalTime == this.remainingTime)
 		{
 			this.isInitialized = false;
