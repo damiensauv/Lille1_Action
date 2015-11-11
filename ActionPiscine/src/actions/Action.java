@@ -12,7 +12,9 @@ public abstract class Action
 	protected boolean isInitialized = false;
 	protected final ArrayList<Action> actions = new ArrayList<Action>();
 	
-	protected abstract Action createAction();
+	protected  Action createAction(){
+		return this;
+	}
 
 	public Action()
 	{

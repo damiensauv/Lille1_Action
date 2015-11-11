@@ -34,24 +34,18 @@ public class TakeResourceAction<R extends Ressource> extends Action
 	}
 
 	@Override
-	public void doStep() throws ActionFinishedException{
-		  System.out.print("-> " + this.user.getName() + " is trying to take resource from " + this.pool.toString() + "... ");
-          try{
-                  R resource = this.pool.provideRessource();
-                  this.user.setResource(resource);
-                  this.isReady = false;
-                  this.isFinished = true;
-                  System.out.println("success");
-          }catch(NoSuchElementException e){
-                  System.out.println("failure");
-          }
+	public void doStep() throws ActionFinishedException {
+		System.out.print("-> " + this.user.getName() + " is trying to take resource from " + this.pool.toString() + "... ");
+		try{
+			R resource = this.pool.provideRessource();
+			this.user.setResource(resource);
+			this.isReady = false;
+			this.isFinished = true;
+			System.out.println("success");
+          	}catch(NoSuchElementException e){
+          		System.out.println("failure");
+          	}
 	}
 	
-	
-	@Override
-	protected Action createAction() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

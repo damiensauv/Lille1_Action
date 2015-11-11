@@ -14,10 +14,6 @@ public abstract class Scheduler extends Action
 		return actions;
 	}
 	
-	public Action createAction()
-	{
-		return this;		
-	}
 	
 	@Override
 	public abstract void doStep() throws ActionFinishedException;

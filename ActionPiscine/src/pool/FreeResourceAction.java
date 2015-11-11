@@ -28,10 +28,5 @@ public class FreeResourceAction<R extends Ressource> extends Action
 		return false;
 	}
 
-	@Override
-	protected Action createAction() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

@@ -12,4 +12,9 @@ public class BasketPool extends RessourcePool<Basket>
 	{
 		return (new Basket());
 	}
+
+	@Override
+	public String toString(){
+		return "pool Basket";
+	}
 }
