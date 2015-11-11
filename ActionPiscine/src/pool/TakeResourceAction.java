@@ -4,27 +4,33 @@ import actions.*;
 
 public class TakeResourceAction<R extends Ressource> extends Action
 {
+    protected RessourcePool<R> pool;
+    protected ResourcefulUser<R> user;
+    protected boolean isReady;
+    protected boolean isInProgress;
+    protected boolean isFinished;
+	
 	public TakeResourceAction(RessourcePool<R> pool, ResourcefulUser<R> user){
+		
+		this.pool = pool;
+		this.user = user;
 		System.out.println("Take Resource");
 	}
 	
 	
 	@Override
 	public boolean isReady() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.isReady;
 	}
 
 	@Override
 	public boolean isInProgress() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.isInProgress;
 	}
 
 	@Override
 	public boolean isFinished() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.isFinished;
 	}
 
 	@Override
