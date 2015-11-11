@@ -12,4 +12,9 @@ public class CubiclePool extends RessourcePool<Cubicle>
 	{
 		return (new Cubicle());
 	}
+	
+	@Override
+	public String toString(){
+		return "pool Cubicle";
+	}
 }
