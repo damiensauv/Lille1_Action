@@ -1,32 +1,49 @@
 package pool;
 
+import java.util.NoSuchElementException;
+
+import exception.ActionFinishedException;
 import actions.*;
 
 public class FreeResourceAction<R extends Ressource> extends Action
 {
-
-	public FreeResourceAction(RessourcePool<R> pool,
-			ResourcefulUser<R> user) {
-		// TODO Auto-generated constructor stub
+    protected RessourcePool<R> pool;
+    protected ResourcefulUser<R> user;
+    protected boolean isReady;
+    protected boolean isInProgress;
+    protected boolean isFinished;
+	
+	public FreeResourceAction(RessourcePool<R> pool, ResourcefulUser<R> user){
+		this.pool = pool;
+		this.user = user;
 	}
 
 	@Override
 	public boolean isReady() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.isReady;
 	}
 
 	@Override
 	public boolean isInProgress() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.isInProgress;
 	}
 
 	@Override
 	public boolean isFinished() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.isFinished;
 	}
-
+	
+	@Override
+	public void doStep() throws ActionFinishedException {
+		System.out.print(" " + this.user.getName() + " free " + this.pool.toString() + "... ");
+		try{
+			R resource = this.user.getResource();
+			this.pool.freeResource(resource);
+			this.isReady = false;
+			this.isFinished = true;
+          	}catch(NoSuchElementException e){
+          		System.out.println("bug");
+          	}
+	}
 
 }
