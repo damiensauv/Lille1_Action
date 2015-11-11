@@ -1,7 +1,6 @@
 package pool;
 
 import exception.ActionFinishedException;
-import actions.Action;
 import actions.ForeseeableAction;
 
 public class SwimmingAction extends ForeseeableAction {

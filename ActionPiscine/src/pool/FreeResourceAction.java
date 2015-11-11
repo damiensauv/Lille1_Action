@@ -35,7 +35,7 @@ public class FreeResourceAction<R extends Ressource> extends Action
 	
 	@Override
 	public void doStep() throws ActionFinishedException {
-		System.out.print(" " + this.user.getName() + " free " + this.pool.toString() + "... ");
+		System.out.println(" " + this.user.getName() + " free " + this.pool.toString() + "... ");
 		R resource = this.user.getResource();
 		try{
 			this.pool.freeResource(resource);
