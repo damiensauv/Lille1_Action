@@ -1,5 +1,6 @@
 package pool;
 
+import exception.ActionFinishedException;
 import scheduler.SequentialScheduler;
 import actions.Action;
 
@@ -32,7 +33,12 @@ public class Swimmer extends Action
 	*/	
 	}
 
-
+	@Override
+	public void doStep() throws ActionFinishedException{
+		System.out.println("Do step Swimmer");
+		this.process.doStep();
+	}
+	
 	@Override
 	protected Action createAction() {
 		return null;

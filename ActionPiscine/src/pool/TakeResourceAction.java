@@ -1,5 +1,8 @@
 package pool;
 
+import java.util.NoSuchElementException;
+
+import exception.ActionFinishedException;
 import actions.*;
 
 public class TakeResourceAction<R extends Ressource> extends Action
@@ -11,12 +14,9 @@ public class TakeResourceAction<R extends Ressource> extends Action
     protected boolean isFinished;
 	
 	public TakeResourceAction(RessourcePool<R> pool, ResourcefulUser<R> user){
-		
 		this.pool = pool;
 		this.user = user;
-		System.out.println("Take Resource");
 	}
-	
 	
 	@Override
 	public boolean isReady() {
@@ -33,6 +33,21 @@ public class TakeResourceAction<R extends Ressource> extends Action
 		return this.isFinished;
 	}
 
+	@Override
+	public void doStep() throws ActionFinishedException{
+		  System.out.print("-> " + this.user.getName() + " is trying to take resource from " + this.pool.toString() + "... ");
+          try{
+                  R resource = this.pool.provideRessource();
+                  this.user.setResource(resource);
+                  this.isReady = false;
+                  this.isFinished = true;
+                  System.out.println("success");
+          }catch(NoSuchElementException e){
+                  System.out.println("failure");
+          }
+	}
+	
+	
 	@Override
 	protected Action createAction() {
 		// TODO Auto-generated method stub
