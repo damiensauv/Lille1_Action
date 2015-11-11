@@ -1,11 +1,18 @@
 package pool;
 
-import actions.Action;
+import exception.ActionFinishedException;
+import actions.ForeseeableAction;
 
-public class UndressingAction extends Action {
+public class UndressingAction extends ForeseeableAction
+{
 
 	public UndressingAction(int undress) {
-		// TODO Auto-generated constructor stub
+		super(undress);
 	}
 
+	public void doStep() throws ActionFinishedException
+	{
+		super.doStep();
+		System.out.println("-> undressing : " + this.getCurrentStep() + "/" + super.getNbStepsMax());
+	}
 }
